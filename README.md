@@ -20,3 +20,11 @@ Firmware for CC2533 programmer - based on Benito serial firmware - driven by CCL
   dean [at] fourwalledcubicle [dot] com www.fourwalledcubicle.com
  Released under the LGPL Licence, Version 3
 -------------------------------------------------------------------------------*/
+
+
+To load code into a programmer:
+
+- 'make' here to build a binary
+- erase the programmer (short the 'D7' pins, then short the 'RESET' pins, remove the shorts)
+- run the "load" script here (you will need the dfu-programmer tools)
+- unplug the programmer and plug it back in
