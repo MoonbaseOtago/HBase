@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	0142E2590A37DAD800461F0A /* Debug */ = {
+		activeExec = 0;
+	};
+	01706F540A347F6900E43B08 /* Make */ = {
+		activeExec = 0;
+	};
+	01706F590A347F9A00E43B08 /* Makefile */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {600, 9422}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 515}";
+		};
+	};
+	01706F5B0A34807400E43B08 /* Program */ = {
+		activeExec = 0;
+	};
+	0190E7A40A3800370006249A /* Benito7g.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {627, 6706}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1947}";
+			sepNavWindowFrame = "{{563, 65}, {686, 713}}";
+		};
+	};
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Development;
+		activeTarget = 01706F5B0A34807400E43B08 /* Program */;
+		addToTargets = (
+			01706F5B0A34807400E43B08 /* Program */,
+		);
+		codeSenseManager = F606C6F50E36600500ED6D97 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					833,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 240011085;
+			PBXWorkspaceStateSaveDate = 240011085;
+		};
+		perUserProjectItems = {
+			F62640050E37C6600065D2DE = F62640050E37C6600065D2DE /* PBXTextBookmark */;
+			F62640070E37C6600065D2DE = F62640070E37C6600065D2DE /* PBXTextBookmark */;
+			F626400A0E37C6600065D2DE = F626400A0E37C6600065D2DE /* PBXTextBookmark */;
+			F626400B0E37C6600065D2DE = F626400B0E37C6600065D2DE /* PBXTextBookmark */;
+			F626400C0E37C6600065D2DE = F626400C0E37C6600065D2DE /* PBXTextBookmark */;
+			F62640110E37C6600065D2DE = F62640110E37C6600065D2DE /* PBXTextBookmark */;
+			F63D04D90E4E476600D59154 /* PBXTextBookmark */ = F63D04D90E4E476600D59154 /* PBXTextBookmark */;
+			F63D04DA0E4E476600D59154 /* PBXTextBookmark */ = F63D04DA0E4E476600D59154 /* PBXTextBookmark */;
+			F63D04DD0E4E476600D59154 /* PBXTextBookmark */ = F63D04DD0E4E476600D59154 /* PBXTextBookmark */;
+			F63D04DE0E4E476600D59154 /* PBXTextBookmark */ = F63D04DE0E4E476600D59154 /* PBXTextBookmark */;
+			F63D04EA0E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04EA0E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04EB0E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04EB0E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04EC0E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04EC0E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04ED0E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04ED0E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04EE0E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04EE0E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04EF0E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04EF0E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04F00E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04F00E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04F10E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04F10E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04F20E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04F20E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04F30E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04F30E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04F40E4E5E6D00D59154 /* PBXTextBookmark */ = F63D04F40E4E5E6D00D59154 /* PBXTextBookmark */;
+			F63D04F90E4E5E8F00D59154 /* PBXTextBookmark */ = F63D04F90E4E5E8F00D59154 /* PBXTextBookmark */;
+			F63D04FA0E4E5E8F00D59154 /* PBXTextBookmark */ = F63D04FA0E4E5E8F00D59154 /* PBXTextBookmark */;
+			F63D04FB0E4E5E8F00D59154 /* PBXTextBookmark */ = F63D04FB0E4E5E8F00D59154 /* PBXTextBookmark */;
+			F6BDB9460E380A4600FC0770 = F6BDB9460E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB9470E380A4600FC0770 = F6BDB9470E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB9480E380A4600FC0770 = F6BDB9480E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB94A0E380A4600FC0770 = F6BDB94A0E380A4600FC0770 /* PBXBookmark */;
+			F6BDB94B0E380A4600FC0770 = F6BDB94B0E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB94C0E380A4600FC0770 = F6BDB94C0E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB94E0E380A4600FC0770 = F6BDB94E0E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB94F0E380A4600FC0770 = F6BDB94F0E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB9510E380A4600FC0770 = F6BDB9510E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB9540E380A4600FC0770 = F6BDB9540E380A4600FC0770 /* PBXBookmark */;
+			F6BDB9560E380A4600FC0770 = F6BDB9560E380A4600FC0770 /* PBXTextBookmark */;
+			F6BDB9580E380A4600FC0770 = F6BDB9580E380A4600FC0770 /* PBXTextBookmark */;
+		};
+		sourceControlManager = F606C6F40E36600500ED6D97 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	F606C6F40E36600500ED6D97 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	F606C6F50E36600500ED6D97 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	F62640050E37C6600065D2DE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01706F590A347F9A00E43B08 /* Makefile */;
+		name = "Makefile: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 515;
+		vrLoc = 0;
+	};
+	F62640070E37C6600065D2DE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F653E4850E2D559500843EA0 /* Benito7g.h */;
+		name = "Benito7g.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1139;
+		vrLoc = 0;
+	};
+	F626400A0E37C6600065D2DE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01706F590A347F9A00E43B08 /* Makefile */;
+		name = "Makefile: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 515;
+		vrLoc = 0;
+	};
+	F626400B0E37C6600065D2DE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 11305;
+	};
+	F626400C0E37C6600065D2DE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F653E4850E2D559500843EA0 /* Benito7g.h */;
+		name = "Benito7g.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1139;
+		vrLoc = 0;
+	};
+	F626400E0E37C6600065D2DE /* Descriptors.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = Descriptors.c;
+		path = /Users/don/Sites/embedded/avr/Benito/Benito7g/Descriptors.c;
+		sourceTree = "<absolute>";
+	};
+	F62640110E37C6600065D2DE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1801;
+		vrLoc = 0;
+	};
+	F63D04D90E4E476600D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9430E380A0400FC0770 /* Descriptors.h */;
+		name = "Descriptors.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 889;
+		vrLoc = 0;
+	};
+	F63D04DA0E4E476600D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9430E380A0400FC0770 /* Descriptors.h */;
+		name = "Descriptors.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 889;
+		vrLoc = 0;
+	};
+	F63D04DD0E4E476600D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9550E380A4600FC0770 /* USBtoSerial.c */;
+		name = "USBtoSerial.c: 230";
+		rLen = 0;
+		rLoc = 6819;
+		rType = 0;
+		vrLen = 1251;
+		vrLoc = 6092;
+	};
+	F63D04DE0E4E476600D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1801;
+		vrLoc = 0;
+	};
+	F63D04EA0E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F653E4840E2D559500843EA0 /* RingBuff.h */;
+		name = "RingBuff.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1598;
+		vrLoc = 0;
+	};
+	F63D04EB0E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9430E380A0400FC0770 /* Descriptors.h */;
+		name = "Descriptors.h: 9";
+		rLen = 0;
+		rLoc = 278;
+		rType = 0;
+		vrLen = 918;
+		vrLoc = 0;
+	};
+	F63D04EC0E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F653E4830E2D559500843EA0 /* RingBuff.c */;
+		name = "RingBuff.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 0;
+	};
+	F63D04ED0E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9430E380A0400FC0770 /* Descriptors.h */;
+		name = "Descriptors.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 889;
+		vrLoc = 0;
+	};
+	F63D04EE0E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F653E4830E2D559500843EA0 /* RingBuff.c */;
+		name = "RingBuff.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 0;
+	};
+	F63D04EF0E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F653E4840E2D559500843EA0 /* RingBuff.h */;
+		name = "RingBuff.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1598;
+		vrLoc = 0;
+	};
+	F63D04F00E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9430E380A0400FC0770 /* Descriptors.h */;
+		name = "Descriptors.h: 9";
+		rLen = 0;
+		rLoc = 278;
+		rType = 0;
+		vrLen = 918;
+		vrLoc = 0;
+	};
+	F63D04F10E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F653E4830E2D559500843EA0 /* RingBuff.c */;
+		name = "RingBuff.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 0;
+	};
+	F63D04F20E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 2";
+		rLen = 0;
+		rLoc = 144;
+		rType = 0;
+		vrLen = 1443;
+		vrLoc = 0;
+	};
+	F63D04F30E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9550E380A4600FC0770 /* USBtoSerial.c */;
+		name = "USBtoSerial.c: 230";
+		rLen = 0;
+		rLoc = 6819;
+		rType = 0;
+		vrLen = 1251;
+		vrLoc = 6092;
+	};
+	F63D04F40E4E5E6D00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1947;
+		vrLoc = 0;
+	};
+	F63D04F90E4E5E8F00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 2";
+		rLen = 0;
+		rLoc = 144;
+		rType = 0;
+		vrLen = 1443;
+		vrLoc = 0;
+	};
+	F63D04FA0E4E5E8F00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9550E380A4600FC0770 /* USBtoSerial.c */;
+		name = "USBtoSerial.c: 230";
+		rLen = 0;
+		rLoc = 6819;
+		rType = 0;
+		vrLen = 1251;
+		vrLoc = 6092;
+	};
+	F63D04FB0E4E5E8F00D59154 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1947;
+		vrLoc = 0;
+	};
+	F653E4830E2D559500843EA0 /* RingBuff.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1428}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 648}";
+		};
+	};
+	F653E4840E2D559500843EA0 /* RingBuff.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1148}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1598}";
+		};
+	};
+	F653E4850E2D559500843EA0 /* Benito7g.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1484}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1139}";
+		};
+	};
+	F653E48A0E2D55F100843EA0 /* Benito7g.inf */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {627, 770}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{128, 1037}";
+			sepNavWindowFrame = "{{15, 60}, {686, 713}}";
+		};
+	};
+	F6BDB9430E380A0400FC0770 /* Descriptors.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 966}}";
+			sepNavSelRange = "{278, 0}";
+			sepNavVisRange = "{0, 918}";
+		};
+	};
+	F6BDB9460E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F626400E0E37C6600065D2DE /* Descriptors.c */;
+		name = "Descriptors.c: 180";
+		rLen = 0;
+		rLoc = 4611;
+		rType = 0;
+		vrLen = 696;
+		vrLoc = 5193;
+	};
+	F6BDB9470E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1008;
+		vrLoc = 9550;
+	};
+	F6BDB9480E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9490E380A4600FC0770 /* USBtoSerial.c */;
+		name = "USBtoSerial.c: 254";
+		rLen = 2;
+		rLoc = 7365;
+		rType = 0;
+		vrLen = 925;
+		vrLoc = 7305;
+	};
+	F6BDB9490E380A4600FC0770 /* USBtoSerial.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = USBtoSerial.c;
+		path = /Users/don/Sites/embedded/avr/myusb151/Demos/USBtoSerial/USBtoSerial.c;
+		sourceTree = "<absolute>";
+	};
+	F6BDB94A0E380A4600FC0770 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F6BDB9430E380A0400FC0770 /* Descriptors.h */;
+	};
+	F6BDB94B0E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F626400E0E37C6600065D2DE /* Descriptors.c */;
+		name = "Descriptors.c: 180";
+		rLen = 0;
+		rLoc = 4611;
+		rType = 0;
+		vrLen = 696;
+		vrLoc = 5193;
+	};
+	F6BDB94C0E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB94D0E380A4600FC0770 /* USBtoSerial.c */;
+		name = "USBtoSerial.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1104;
+		vrLoc = 7600;
+	};
+	F6BDB94D0E380A4600FC0770 /* USBtoSerial.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = USBtoSerial.c;
+		path = /Users/don/Sites/embedded/avr/myusb151/Demos/USBtoSerial/USBtoSerial.c;
+		sourceTree = "<absolute>";
+	};
+	F6BDB94E0E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1008;
+		vrLoc = 9550;
+	};
+	F6BDB94F0E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9500E380A4600FC0770 /* USBtoSerial.c */;
+		name = "USBtoSerial.c: 254";
+		rLen = 2;
+		rLoc = 7365;
+		rType = 0;
+		vrLen = 925;
+		vrLoc = 7305;
+	};
+	F6BDB9500E380A4600FC0770 /* USBtoSerial.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = USBtoSerial.c;
+		path = /Users/don/Sites/embedded/avr/myusb151/Demos/USBtoSerial/USBtoSerial.c;
+		sourceTree = "<absolute>";
+	};
+	F6BDB9510E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9430E380A0400FC0770 /* Descriptors.h */;
+		name = "Descriptors.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 889;
+		vrLoc = 0;
+	};
+	F6BDB9540E380A4600FC0770 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F6BDB9550E380A4600FC0770 /* USBtoSerial.c */;
+	};
+	F6BDB9550E380A4600FC0770 /* USBtoSerial.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = USBtoSerial.c;
+		path = /Users/don/Sites/embedded/avr/myusb151/Demos/USBtoSerial/USBtoSerial.c;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {702, 4158}}";
+			sepNavSelRange = "{6819, 0}";
+			sepNavVisRange = "{6092, 1251}";
+		};
+	};
+	F6BDB9560E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F6BDB9570E380A4600FC0770 /* USBtoSerial.c */;
+		name = "USBtoSerial.c: 230";
+		rLen = 0;
+		rLoc = 6819;
+		rType = 0;
+		vrLen = 1272;
+		vrLoc = 6092;
+	};
+	F6BDB9570E380A4600FC0770 /* USBtoSerial.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = USBtoSerial.c;
+		path = /Users/don/Sites/embedded/avr/myusb151/Demos/USBtoSerial/USBtoSerial.c;
+		sourceTree = "<absolute>";
+	};
+	F6BDB9580E380A4600FC0770 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0190E7A40A3800370006249A /* Benito7g.c */;
+		name = "Benito7g.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1801;
+		vrLoc = 0;
+	};
+}

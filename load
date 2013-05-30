@@ -1,0 +1,3 @@
+sudo dfu-programmer at90usb162 erase
+sudo dfu-programmer at90usb162 flash Benito7g.hex
+
