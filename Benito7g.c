@@ -63,8 +63,9 @@ volatile bool     Transmitting = false;
 volatile bool     RXD_Flag = false;
 volatile bool     TXD_Flag = false;
 volatile bool     DTR_Flag = false;
+volatile bool     usb_waiting = false;
 
-unsigned char uart_state=0;
+volatile unsigned char uart_state=0;
 void set_no_pr();
 
 /*-----------------------------------------------------------------------------*
@@ -292,6 +293,7 @@ EVENT_HANDLER(USB_UnhandledControlPacket)
 
 TASK(CDC_Task)
 {
+  set_led(2, 1);
 	if (USB_IsConnected)
 	{
 		/* Select the Serial Rx Endpoint */
@@ -303,7 +305,10 @@ TASK(CDC_Task)
 			while (Endpoint_BytesInEndpoint())
 			{
 				/* Wait until the buffer has space for a new character */
-				while (!((BUFF_STATICSIZE - Rx_Buffer.Elements)));
+				if (Rx_Buffer.Elements >= BUFF_STATICSIZE) {
+					usb_waiting = 1;
+					break;
+				}
 			
 				/* Store each character from the endpoint */
 				Buffer_StoreElement(&Rx_Buffer, Endpoint_Read_Byte());
@@ -327,6 +332,7 @@ TASK(CDC_Task)
 //				Transmitting = true;
 //				Serial_TxByte(Buffer_GetElement(&Rx_Buffer));
 //			}
+	 	 	Scheduler_SetTaskMode(LOOP_Task, TASK_RUN);
 		}
 
 		if (Tx_Buffer.Elements || ConsTx_Buffer.Elements) {
@@ -387,6 +393,7 @@ TASK(CDC_Task)
 			}
 		}
 	}
+  set_led(2, 0);
 }
 
 /*------------------------------------------------------------ISR(USART1_TX_vect)
@@ -398,7 +405,7 @@ ISR(USART1_TX_vect)
 //	if (Rx_Buffer.Elements)
 //	  UDR1 = Buffer_GetElement(&Rx_Buffer);
 //	else
-	  if (Rx_Buffer.Elements)
+	  if (Rx_Buffer.Elements) 
 	 	 Scheduler_SetTaskMode(LOOP_Task, TASK_RUN);
 	  Transmitting = false;
 }
@@ -858,6 +865,10 @@ TASK(LOOP_Task)
 	if (Transmitting)
 		return;
   	inByte = Buffer_GetElement(&Rx_Buffer);
+	if (usb_waiting) {
+		usb_waiting = 0;
+		Scheduler_SetTaskMode(CDC_Task, TASK_RUN);
+	}
 	switch (uart_state) {
 	case 0:	uart_state = (inByte=='+'?1:0); break;
 	case 1:	uart_state = (inByte=='+'?2:0); break;
@@ -880,6 +891,10 @@ TASK(LOOP_Task)
 	return;
   }
   inByte = Buffer_GetElement(&Rx_Buffer);
+  if (usb_waiting) {
+	usb_waiting = 0;
+	Scheduler_SetTaskMode(CDC_Task, TASK_RUN);
+  }
   //inByte = Serial_read();
   if (inByte != '\r') {
     inByte = toupper(inByte);
