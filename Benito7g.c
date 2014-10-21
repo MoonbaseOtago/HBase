@@ -34,6 +34,7 @@
 unsigned char do_store = 1;
 
 #include "Benito7g.h"
+#include "dmacode.c"
 
 void setup(void);
 TASK(LOOP_Task);
@@ -66,7 +67,10 @@ volatile bool     DTR_Flag = false;
 volatile bool     usb_waiting = false;
 
 volatile unsigned char uart_state=0;
-void set_no_pr();
+void set_no_pr(void);
+void set_pr(void);
+void set_led(int led, int v);
+unsigned char dma_running=0;
 
 /*-----------------------------------------------------------------------------*
  **************************** INITIALIZATION AND MAIN **************************
@@ -709,7 +713,7 @@ inline void set_RST(int v)
 #define CMD_RESET        'R'
 #define CMD_EXIT         'E'
 
-#define BUFFER_SIZE      140
+#define BUFFER_SIZE      190
 
 unsigned char inByte;
 unsigned char inBuffer[BUFFER_SIZE];
@@ -725,6 +729,14 @@ void printHexln(unsigned char data);
 unsigned char dbg_instr3(unsigned char in0, unsigned char in1, unsigned char in2);
 unsigned char dbg_instr2(unsigned char in0, unsigned char in1);
 unsigned char dbg_instr1(unsigned char in0);
+unsigned char wr_config(unsigned char in0);
+unsigned char resume(void);
+unsigned char halt(void);
+unsigned char step(void);
+unsigned int get_pc(void);
+unsigned char read_status(void);
+unsigned char end_transaction(void);
+unsigned int lend_transaction(void);
 void sendOK(void);
 void sendERROR(void);
 unsigned char checkChecksum(void);
@@ -921,6 +933,8 @@ TASK(LOOP_Task)
   }
   if (data1 || idx <= 2) {
     Serial_print(PSTR("BAD PACKET:"));
+    printHex(idx);Serial_print(PSTR(" "));
+    printHex(inByte);Serial_print(PSTR(" "));
     printHexln(data1);
     sendERROR();
     return;
@@ -1042,20 +1056,218 @@ TASK(LOOP_Task)
       }
     break;
   case CMD_XDATA:
+    if (inBuffer[1] == 'Q') {
+	halt();
+	dma_running = 0;
+        dbg_instr3(0x90, 0x00, 00);            // MOV DPTR #0
+	for (unsigned char i = 0; i < dma_size; i++) {
+              dbg_instr2(0x74, pgm_read_byte(&dma_code[i]));	// MOV A, #byte
+              dbg_instr1(0xF0);			// MOV @DPTR, A
+              dbg_instr1(0xA3);			// INC DPTR
+	}
+//	dbg_instr3(0x75, 0x9f, 0x00);	// map flash to 0x8000
+//	dbg_instr3(0x75, 0xc7, 0x08);	// map sram to 0x8000
+	sendOK();
+	return;
+    }
     if (idx >= 8) {
-      if(isHexByte(2) & isHexByte(4) & isHexByte(6)) {
+      unsigned char i;
+      if(isHexByte(2) && isHexByte(4) && isHexByte(6)) {
+	if (inBuffer[1] == 'J') {
+		if (dma_running) {
+			end_transaction();
+			dma_running = 0;
+			for (i = 0; ; i++) {
+				if (read_status()&0x20)	// halted?
+					break;
+				if (i == 200) {
+					halt();
+              				Serial_print(PSTR("TIMEOUT"));
+              				Serial_println();
+              				sendERROR();
+					return;
+				}
+			}
+		} else {
+			halt();
+		}
+          	sendOK();
+          	return;
+	}
         unsigned char cnt = getHexByte(6);
         if(!cnt) {
           sendOK();
           return;
         }
+        i = 8;
+	if (inBuffer[1] == 'N') {
+		unsigned addr = (getHexByte(2)<<8)|getHexByte(4);	// addr/4
+		if ((addr&((512>>2)-1)) == 0) {
+//			if (dma_running) {
+//				end_transaction();
+//				dma_running = 0;
+//				for (i = 0; ; i++) {
+//					if (read_status()&0x20)	// halted?
+//						break;
+//					if (i == 200) {
+//						halt();
+//              					Serial_print(PSTR("TIMEOUT"));
+//              					Serial_println();
+//              					sendERROR();
+//						return;
+//					}
+//				}
+//				i = 8;
+//			} else {
+//				halt();
+//			}
+			
+			wr_config(0x22);			// enable dma
+
+dbg_instr3(0x75, 0xD5, 0x00);  // mov     DMA0CFGH, #inp>>8               
+dbg_instr3(0x75, 0xD4, 0x00);  // mov     DMA0CFGL, #inp                  
+dbg_instr3(0x75, 0xD6, 0x01);  // mov     DMAARM, #1                      
+
+
+
+
+#ifdef NOTDEF
+//Serial_print(PSTR("START"));
+//        		dbg_instr2(0x7f, addr>>8);           	// MOV r7 #high
+//        		dbg_instr2(0x7e, addr);            	// MOV r6 #lo
+//			wr_config(0x22);			// enable dma
+//			dbg_instr3(0x02, 0x80, 0x10);	      // ljmp 16
+//			resume();				// resume
+//for (i=0;i<200;i++) ;
+//for (i=0;i<200;i++) step();
+//Serial_print(PSTR(" step pc="));
+//for (i=0;i<10;i++) {
+//step();
+//#ifdef NOTDEF
+//halt();
+//{unsigned int pc=get_pc();
+//Serial_printhex(pc>>8);
+//Serial_printhex(pc);
+//Serial_print(PSTR(" "));
+//}
+//Serial_println();
+//sendERROR();
+//return;
+//#endif
+//}
+//Serial_print(PSTR("R"));
+dbg_write(0x80);			// burst write 512
+dbg_write(0x02);			
+dbg_write(0x34);			
+dbg_write(0x56);			
+end_transaction();
+halt();
+dbg_instr3(0x90, 0x00, 0x63);            // MOV DPTR #high #low
+
+i = dbg_instr1(0xe0);	// MOV A, @DPTR
+Serial_printhex(i);
+Serial_print(PSTR(" "));
+dbg_instr1(0xA3);			// INC DPTR
+
+i = dbg_instr1(0xe0);	// MOV A, @DPTR
+Serial_printhex(i);
+Serial_print(PSTR(" "));
+dbg_instr1(0xA3);			// INC DPTR
+//
+//Serial_print(PSTR("B"));
+//dbg_instr3(0x90, 0x00, 0x02);            // MOV DPTR #high #low
+//
+//i = dbg_instr1(0xe0);	// MOV A, @DPTR
+//Serial_printhex(i);
+//Serial_print(PSTR(" "));
+//dbg_instr1(0xA3);			// INC DPTR
+//
+//i = dbg_instr1(0xe0);	// MOV A, @DPTR
+//Serial_printhex(i);
+//Serial_print(PSTR(" "));
+//dbg_instr1(0xA3);			// INC DPTR
+//
+//i = dbg_instr1(0xe0);	// MOV A, @DPTR
+//Serial_printhex(i);
+//Serial_print(PSTR(" "));
+//dbg_instr1(0xA3);			// INC DPTR
+//
+//i = dbg_instr1(0xe0);	// MOV A, @DPTR
+//Serial_printhex(i);
+//Serial_print(PSTR(" "));
+//dbg_instr1(0xA3);			// INC DPTR
+//
+Serial_println();
+sendERROR();
+return;
+#endif
+			dbg_write(0x82);			// burst write 512
+			dbg_write(0x00);			
+		}
+		cnt = 128;
+          	while (cnt > 0) {
+            		if (i + 3 >= idx) {
+              			Serial_print(PSTR("NO DATA"));
+              			Serial_println();
+              			sendERROR();
+              			return;
+            		}
+			unsigned char b = inBuffer[i++]-0x20;
+			if (b >= 0x40) {
+nohex:
+              			Serial_print(PSTR("NO HEX"));
+              			Serial_println();
+              			sendERROR();
+              			return;
+            		}
+			unsigned char c = b<<2;
+			b = inBuffer[i++]-0x20;
+			if (b >= 0x40) 
+				goto nohex;
+			c |= b>>4;
+			dbg_write(c);			
+			c = b<<4;
+			b = inBuffer[i++]-0x20;
+			if (b >= 0x40) 
+				goto nohex;
+			c |= b>>2;
+			dbg_write(c);			
+			if (cnt >= 3) {
+				c = b<<6;
+				b = inBuffer[i++]-0x20;
+				if (b >= 0x40) 
+					goto nohex;
+				c |= b;
+				dbg_write(c);			
+			} else {
+				break;
+			}
+			cnt -= 3;
+          	}
+		if ((addr&((512>>2)-1)) == ((512-128)>>2)) {	// last of series
+			end_transaction();
+			dbg_instr3(0x75, 0xD3, 0x00);	// mov     DMA1CFGH, #outp>>8              
+			dbg_instr3(0x75, 0xD2, 0x08);	// mov     DMA1CFGL, #outp                 
+			dbg_instr3(0x90, 0x62, 0x71);	// mov     dptr, #FADDRL                   
+              		dbg_instr2(0x74, addr&0x80);	// MOV A, #addr&0x80
+			dbg_instr1(0xF0);		// movx    @dptr, a
+			dbg_instr1(0xA3);		// inc     dptr
+              		dbg_instr2(0x74, addr>>8);	// MOV A, #addr>>8
+			dbg_instr1(0xF0);		// movx    @dptr, a
+			dbg_instr3(0x90, 0x62, 0x70);	// mov     dptr, #FCTL                     
+			dbg_instr3(0x75, 0xD6, 0x02);	// mov     DMAARM, #2
+			dbg_instr2(0x74, 0x02);		// mov     a, #FWRITE
+			dbg_instr1(0xF0);		// movx    @dptr, a
+		}
+		sendOK();
+		return;
+	}
         if(cnt > 64) {
           Serial_print(PSTR("NO MORE 64 BYTES"));
           Serial_println();
           sendERROR();
           return;
         }
-        unsigned char i = 8;
         dbg_instr3(0x90, getHexByte(2), getHexByte(4));            // MOV DPTR #high #low
         data1 = 1;
         //LED_TOGGLE();
@@ -1395,44 +1607,77 @@ void printHexln(unsigned char data) {
   Serial_println();
 }
 
+unsigned int lend_transaction() 
+{
+  unsigned int l;
+  dir_DD(0);
+  set_DD(0);
+  cc_delay(20);
+  while (prod?PIN_DD&CC_DD:PIN_DD2&CC_DD2) {
+	(void)dbg_read();
+  	cc_delay(6);
+  }
+  l = dbg_read()<<8;
+  while (prod?PIN_DD&CC_DD:PIN_DD2&CC_DD2) {
+	(void)dbg_read();
+  	cc_delay(6);
+  }
+  l |= dbg_read();
+  return l;
+}
+unsigned char end_transaction() 
+{
+  dir_DD(0);
+  set_DD(0);
+  cc_delay(20);
+  while (prod?PIN_DD&CC_DD:PIN_DD2&CC_DD2) {
+	(void)dbg_read();
+  	cc_delay(6);
+  }
+  return dbg_read();
+}
 unsigned char dbg_instr3(unsigned char in0, unsigned char in1, unsigned char in2) {
   dbg_write(0x57);
   dbg_write(in0);
   dbg_write(in1);
   dbg_write(in2);
-  dir_DD(0);
-  set_DD(0);
-  cc_delay(20);
-  while (prod?PIN_DD&CC_DD:PIN_DD2&CC_DD2) {
-	(void)dbg_read();
-  	cc_delay(6);
-  }
-  return dbg_read();
+  return end_transaction();
 }
 unsigned char dbg_instr2(unsigned char in0, unsigned char in1) {
   dbg_write(0x56);
   dbg_write(in0);
   dbg_write(in1);
-  dir_DD(0);
-  set_DD(0);
-  cc_delay(20);
-  while (prod?PIN_DD&CC_DD:PIN_DD2&CC_DD2) {
-	(void)dbg_read();
-  	cc_delay(6);
-  }
-  return dbg_read();
+  return end_transaction();
 }
 unsigned char dbg_instr1(unsigned char in0) {
   dbg_write(0x55);
   dbg_write(in0);
-  dir_DD(0);
-  set_DD(0);
-  cc_delay(20);
-  while (prod?PIN_DD&CC_DD:PIN_DD2&CC_DD2) {
-	(void)dbg_read();
-  	cc_delay(6);
-  }
-  return dbg_read();
+  return end_transaction();
+}
+unsigned char wr_config(unsigned char in0) {
+  dbg_write(0x18);
+  dbg_write(in0);
+  return end_transaction();
+}
+unsigned char halt() {
+  dbg_write(0x40);
+  return end_transaction();
+}
+unsigned char resume() {
+  dbg_write(0x48);
+  return end_transaction();
+}
+unsigned char step() {
+  dbg_write(0x58);
+  return end_transaction();
+}
+unsigned int get_pc() {
+  dbg_write(0x28);
+  return lend_transaction();
+}
+unsigned char read_status() {
+  dbg_write(0x30);
+  return end_transaction();
 }
 
 void sendERROR(void) {

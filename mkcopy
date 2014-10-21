@@ -1,0 +1,8 @@
+#!/bin/sh
+# - depends on having sdcc installed
+sdas8051 -z -l -o copy.rel copy.s
+sdld -n -i copy.ihx copy
+makebin -p copy.ihx copy.tmp
+gcc -o cvt-file cvt-file.c
+./cvt-file <copy.tmp >dmacode.c
+
