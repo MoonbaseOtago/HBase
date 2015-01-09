@@ -10,19 +10,19 @@
 
 #include "Descriptors.h"
 
-USB_Descriptor_Device_t DeviceDescriptor PROGMEM =
+const USB_Descriptor_Device_t DeviceDescriptor PROGMEM =
 {
 	Header:                 {Size: sizeof(USB_Descriptor_Device_t), Type: DTYPE_Device},
 		
-	USBSpecification:       VERSION_BCD(01.10),
+	USBSpecification:       VERSION_BCD(01.20),
 	Class:                  0x02,
 	SubClass:               0x00,
 	Protocol:               0x00,
 				
 	Endpoint0Size:          8,
 		
-	VendorID:               0x03EB,
-	ProductID:              0x204B,
+	VendorID:               0x1d50,
+	ProductID:              0x60bc,
 	ReleaseNumber:          0x0000,
 		
 	ManufacturerStrIndex:   0x01,
@@ -32,7 +32,7 @@ USB_Descriptor_Device_t DeviceDescriptor PROGMEM =
 	NumberOfConfigurations: 1
 };
 	
-USB_Descriptor_Configuration_t ConfigurationDescriptor PROGMEM =
+const USB_Descriptor_Configuration_t ConfigurationDescriptor PROGMEM =
 {
 	Config:
 		{
@@ -152,32 +152,32 @@ USB_Descriptor_Configuration_t ConfigurationDescriptor PROGMEM =
 		}
 };
 
-USB_Descriptor_String_t LanguageString PROGMEM =
+const USB_Descriptor_String_t LanguageString PROGMEM =
 {
 	Header:                 {Size: USB_STRING_LEN(1), Type: DTYPE_String},
 		
 	UnicodeString:          {LANGUAGE_ID_ENG}
 };
 
-USB_Descriptor_String_t ManufacturerString PROGMEM =
+const USB_Descriptor_String_t ManufacturerString PROGMEM =
 {
-	Header:                 {Size: USB_STRING_LEN(19), Type: DTYPE_String},
+	Header:                 {Size: USB_STRING_LEN(80), Type: DTYPE_String},
 		
-	UnicodeString:          L"Donald Delmar Davis"
+	UnicodeString:          L"Moonbase Otago http://www.moonbaseotago.com/cheaprf/programmer1/programmer1.html"
 };
 
-USB_Descriptor_String_t ProductString PROGMEM =
+const USB_Descriptor_String_t ProductString PROGMEM =
 {
-	Header:                 {Size: USB_STRING_LEN(23), Type: DTYPE_String},
+	Header:                 {Size: USB_STRING_LEN(17), Type: DTYPE_String},
 		
-	UnicodeString:          L"Benito7g"
+	UnicodeString:          L"CC25xx programmer"
 };
 
-USB_Descriptor_String_t SerialNumberString PROGMEM =
+const USB_Descriptor_String_t SerialNumberString PROGMEM =
 {
-	Header:                 {Size: USB_STRING_LEN(12), Type: DTYPE_String},
+	Header:                 {Size: USB_STRING_LEN(1), Type: DTYPE_String},
 		
-	UnicodeString:          L"000000000002"
+	UnicodeString:          L"3"
 };
 
 bool USB_GetDescriptor(const uint16_t wValue, const uint8_t wIndex,
